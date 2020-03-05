@@ -1,12 +1,8 @@
 package com.example.api.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.context.annotation.Primary;
-
+import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import java.util.List;
 
 /**
  * The type Customer.
@@ -16,15 +12,19 @@ public class Customer {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @ApiModelProperty(value = "Primary Key da tabela customer, valor gerado automaticamente")
   private Long id;
 
   @Column(nullable = false)
+  @ApiModelProperty(value = "Nome completo do cadastrado")
   private String name;
 
+  @ApiModelProperty(value = "Endereco do cadastrado")
   @OneToOne
   @JoinColumn(name = "endereco")
   private Endereco endereco;
 
+  @ApiModelProperty(value = "Email do cadastrado")
   @Column(nullable = false)
   @Email
   private String email;

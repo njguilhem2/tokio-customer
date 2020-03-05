@@ -1,8 +1,6 @@
 package com.example.api.controller;
 
 import 	java.util.List;
-
-import com.example.api.domain.Endereco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +10,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.example.api.domain.Customer;
 import com.example.api.service.impl.CustomerService;
 
-import javax.transaction.Transactional;
-import javax.websocket.server.PathParam;
 
 /**
  * The type Customer controller.
@@ -41,7 +37,7 @@ public class CustomerController {
 	 */
 	@GetMapping
 	public List<Customer> findAll() {
-		return service.findAll();
+		return this.service.findAll();
 	}
 
 	/**
@@ -52,7 +48,7 @@ public class CustomerController {
 	 */
 	@GetMapping("/{id}")
 	public Customer findById(@PathVariable Long id) {
-		return service.findById(id)
+		return this.service.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found"));
 	}
 
@@ -95,5 +91,4 @@ public class CustomerController {
 		response.setResult(new ResponseEntity<>(this.service.alterCustomer(customer), HttpStatus.OK));
 		return response;
 	}
-
 }
