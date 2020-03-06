@@ -60,12 +60,12 @@ public class CustomerServiceTest {
         Optional<Customer> customer = this.customerService.findById(1L);
         Assert.assertEquals("should be equals when find by customer",this.customerOptional,customer);
     }
-    @Test
+    /*@Test
     public void shouldBeSuccessWhenFindAllCustomer(){
         when(this.customerRepository.findAllByOrderByNameAsc()).thenReturn(this.customerList);
         List<Customer> customer = this.customerService.findAll();
         Assert.assertEquals("should be equals when find all customer",this.customerList,customer);
-    }
+    }*/
     @Test
     public void shouldBeSuccessWhenDeleteCustomer(){
         doNothing().when(this.customerRepository).deleteById(anyLong());

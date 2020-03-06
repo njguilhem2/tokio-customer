@@ -1,8 +1,10 @@
 package com.example.api.domain;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.List;
 
 /**
  * The type Customer.
@@ -20,9 +22,9 @@ public class Customer {
   private String name;
 
   @ApiModelProperty(value = "Endereco do cadastrado")
-  @OneToOne
+  @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
   @JoinColumn(name = "endereco")
-  private Endereco endereco;
+  private List<Endereco> endereco;
 
   @ApiModelProperty(value = "Email do cadastrado")
   @Column(nullable = false)
@@ -88,7 +90,7 @@ public class Customer {
    *
    * @return the endereco
    */
-  public Endereco getEndereco() {
+  public List<Endereco> getEndereco() {
     return endereco;
   }
 
@@ -97,7 +99,7 @@ public class Customer {
    *
    * @param endereco the endereco
    */
-  public void setEndereco(Endereco endereco) {
+  public void setEndereco(List<Endereco> endereco) {
     this.endereco = endereco;
   }
 }

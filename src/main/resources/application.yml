@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: '@project.name@'
+  profiles:
+    active: local
+
+server:
+  port: 8088
+  servlet:
+    context-path: /tokio
+
+# Management endpoints actuator
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include:
+          - health
+          - metrics
+          - info

@@ -10,6 +10,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.example.api.domain.Customer;
 import com.example.api.service.impl.CustomerService;
 
+import javax.validation.Valid;
+
 
 /**
  * The type Customer controller.

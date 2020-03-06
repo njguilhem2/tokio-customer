@@ -1,32 +1,47 @@
 package com.example.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
 public class Endereco {
   @Id
+  @JsonIgnore
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   @Column(nullable = false)
-  private String rua;
+  private String CEP;
   @Column(nullable = false)
-  private Integer cep;
+  private String logradouro;
+  @Column(nullable = false)
+  private String complemento;
   @Column(nullable = false)
   private String bairro;
   @Column(nullable = false)
-  private String cidade;
+  private String localidade;
   @Column(nullable = false)
-  private String estado;
+  private String uf;
+  @Column(nullable = false)
+  private String unidade;
+  @Column(nullable = false)
+  private String ibge;
+  @Column(nullable = false)
+  private String gia;
 
-  public Endereco(Long id, String rua, Integer cep, String bairro, String cidade, String estado) {
+  public Endereco(){}
+
+  public Endereco(Long id, String CEP, String logradouro, String complemento, String bairro, String localidade, String uf, String unidade, String ibge, String gia) {
     this.id = id;
-    this.rua = rua;
-    this.cep = cep;
+    this.CEP = CEP;
+    this.logradouro = logradouro;
+    this.complemento = complemento;
     this.bairro = bairro;
-    this.cidade = cidade;
-    this.estado = estado;
+    this.localidade = localidade;
+    this.uf = uf;
+    this.unidade = unidade;
+    this.ibge = ibge;
+    this.gia = gia;
   }
-
   public Long getId() {
     return id;
   }
@@ -35,20 +50,28 @@ public class Endereco {
     this.id = id;
   }
 
-  public String getRua() {
-    return rua;
+  public String getCEP() {
+    return CEP;
   }
 
-  public void setRua(String rua) {
-    this.rua = rua;
+  public void setCEP(String CEP) {
+    this.CEP = CEP;
   }
 
-  public Integer getCep() {
-    return cep;
+  public String getLogradouro() {
+    return logradouro;
   }
 
-  public void setCep(Integer cep) {
-    this.cep = cep;
+  public void setLogradouro(String logradouro) {
+    this.logradouro = logradouro;
+  }
+
+  public String getComplemento() {
+    return complemento;
+  }
+
+  public void setComplemento(String complemento) {
+    this.complemento = complemento;
   }
 
   public String getBairro() {
@@ -59,19 +82,42 @@ public class Endereco {
     this.bairro = bairro;
   }
 
-  public String getCidade() {
-    return cidade;
+  public String getLocalidade() {
+    return localidade;
   }
 
-  public void setCidade(String cidade) {
-    this.cidade = cidade;
+  public void setLocalidade(String localidade) {
+    this.localidade = localidade;
   }
 
-  public String getEstado() {
-    return estado;
+  public String getUf() {
+    return uf;
   }
 
-  public void setEstado(String estado) {
-    this.estado = estado;
+  public void setUf(String uf) {
+    this.uf = uf;
+  }
+
+  public String getUnidade() {
+    return unidade;
+  }
+
+  public void setUnidade(String unidade) {
+    this.unidade = unidade;
+  }
+
+  public String getIbge() {
+    return ibge;
+  }
+
+  public void setIbge(String ibge) {
+    this.ibge = ibge;
+  }
+  public String getGia() {
+    return gia;
+  }
+
+  public void setGia(String gia) {
+    this.gia = gia;
   }
 }

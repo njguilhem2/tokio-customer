@@ -2,7 +2,9 @@ package com.example.api.service;
 
 import com.example.api.domain.Customer;
 import com.example.api.domain.Endereco;
+import org.springframework.data.domain.Page;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
